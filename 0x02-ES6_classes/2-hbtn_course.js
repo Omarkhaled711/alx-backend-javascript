@@ -13,7 +13,7 @@ function isNumber(value, varName) {
 }
 
 function isStudentArray(value) {
-  if (!Array.isArray(value) || !value.every((studentName) => isString(studentName))) {
+  if (!Array.isArray(value) || !value.every((studentName) => typeof studentName === 'string')) {
     throw new TypeError('Students must be an array of strings');
   }
   return value;
