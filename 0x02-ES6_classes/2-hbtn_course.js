@@ -1,8 +1,28 @@
+function isString(value, varName) {
+  if (typeof value !== 'string') {
+    throw new TypeError(`${varName} must be a string`);
+  }
+  return value;
+}
+
+function isNumber(value, varName) {
+  if (typeof value !== 'number' || Number.isNaN(value)) {
+    throw new TypeError(`${varName} must be a number`);
+  }
+  return value;
+}
+
+function isStudentArray(value) {
+  if (!Array.isArray(value) || !value.every((studentName) => isString(studentName))) {
+    throw new TypeError('Students must be an array of strings');
+  }
+  return value;
+}
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = this.isString(name);
-    this._length = this.isNumber(length);
-    this._students = this.isStudentArray(students);
+    this._name = isString(name, 'Name');
+    this._length = isNumber(length, 'Length');
+    this._students = isStudentArray(students);
   }
 
   get name() {
@@ -10,7 +30,7 @@ export default class HolbertonCourse {
   }
 
   set name(newName) {
-    this._name = this.isString(newName);
+    this._name = isString(newName, 'Name');
   }
 
   get length() {
@@ -18,7 +38,7 @@ export default class HolbertonCourse {
   }
 
   set length(newLength) {
-    this._length = this.isNumber(newLength);
+    this._length = isNumber(newLength, 'Length');
   }
 
   get students() {
@@ -26,27 +46,6 @@ export default class HolbertonCourse {
   }
 
   set students(newStudents) {
-    this._students = this.isStudentArray(newStudents);
-  }
-
-  isString(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-    return value;
-  }
-
-  isNumber(value) {
-    if (typeof value !== 'number' || Number.isNaN(value)) {
-      throw new TypeError('Length must be a number');
-    }
-    return value;
-  }
-
-  isStudentArray(value) {
-    if (!Array.isArray(value) || !value.every((studentName) => this.isString(studentName))) {
-      throw new TypeError('Students must be an array of strings');
-    }
-    return value;
+    this._students = isStudentArray(newStudents);
   }
 }
