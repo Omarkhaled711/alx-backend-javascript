@@ -1,0 +1,25 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "unittesting in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omarkhaled711/alx-backend-javascript.git"
+  },
+  "author": "Omar Khaled",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omarkhaled711/alx-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/Omarkhaled711/alx-backend-javascript#readme",
+  "dependencies": {
+    "chai": "^4.4.1",
+    "mocha": "^10.3.0",
+    "sinon": "^17.0.1",
+    "test": "^3.3.0"
+  }
+}
